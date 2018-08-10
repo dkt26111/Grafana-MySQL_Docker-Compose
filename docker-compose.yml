@@ -1,0 +1,46 @@
+---
+version: '2.4'
+
+networks:
+  metrics_net:
+
+volumes:
+  db_data:
+
+services:
+  grafana:
+    image: grafana/grafana:5.2.2
+    container_name: grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - metrics_net
+    env_file:
+      - ./grafana/grafana.env
+    volumes:
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+    labels:
+      com.example.role: "monitoring"
+      com.example.type: "grafana"
+  db:
+    image: mysql:5.6
+    healthcheck:
+      test: /usr/bin/mysql --host=127.0.0.1 --user=root --password=admin --silent --execute="SELECT 1;"
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    networks:
+      - metrics_net
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - 3306:3306
+    env_file:
+      - ./mysql/mysql.env
+    labels:
+      com.example.role: "monitoring"
+      com.example.type: "mysql"
