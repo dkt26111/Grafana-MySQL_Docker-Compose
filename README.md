@@ -1,5 +1,19 @@
 # docker-compose_grafana-mysql
 
+### How docker solves dependency?
+Docker's dependencies can be determined by the following elements without specifying the order:
+* *links*
+* *volumes_from*
+* *network_mode: "service:<service_name>"*
+
+For a simple scenario it will suffice, how about when the dependent container is ready but the dependent service or process is not? Particularly, like database, or 3rd party remote API.
+
+### Solutions
+
+You can:
+1. use [wait-for-it](https://github.com/vishnubob/wait-for-it), or [dockerzie](https://github.com/jwilder/dockerize). Grafana container uses *ENTRYPOINT* of *[run.sh](https://github.com/grafana/grafana-docker/blob/master/run.sh)*, then it's not easy to **append** *./wait-for-it.sh*. There are other ways to solve it , such as using customized Grafana container image or using *docker-compose run*.
+1. use *depends_on* from Docker, **simple and sweet!**
+
 ```
 docker-compose up
 
@@ -18,5 +32,4 @@ grafana    | t=2018-08-12T11:58:40+0000 lvl=info msg="Starting Grafana" logger=s
 grafana    | t=2018-08-12T11:58:44+0000 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
 ```
 
-### docker-compose up
 Grafana container starts only after the MySQL container becomes Ready, and Healthy. Now, Grafana is ready at [http://localhost:3000](http://localhost:3000) :+1:
