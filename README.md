@@ -36,7 +36,7 @@ grafana    | t=2018-08-12T11:58:44+0000 lvl=info msg="HTTP Server Listen" logger
 docker-compose ps
               Name                            Command                State               Ports         
 -------------------------------------------------------------------------------------------------------
-grafana                             /run.sh                       Up             0.0.0.0:3000->3000/tcp
+grafana                             /run.sh                       Up (healthy)   0.0.0.0:3000->3000/tcp
 grafana-mysql_docker-compose_db_1   docker-entrypoint.sh mysqld   Up (healthy)   3306/tcp
 ```
 If MySQL turns out to be _unhealthy_ Grafana container will not start.
