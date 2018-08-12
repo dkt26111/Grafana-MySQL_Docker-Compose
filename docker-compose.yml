@@ -31,6 +31,7 @@ services:
       test: /usr/bin/mysql --host=127.0.0.1 --user=root --password=admin --silent --execute="SELECT 1;"
       interval: 5s
       timeout: 3s
+      start_period: 3s
       retries: 3
     networks:
       - metrics_net
