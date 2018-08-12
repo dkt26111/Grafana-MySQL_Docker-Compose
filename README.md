@@ -39,7 +39,7 @@ docker-compose ps
 grafana                             /run.sh                       Up (healthy)   0.0.0.0:3000->3000/tcp
 grafana-mysql_docker-compose_db_1   docker-entrypoint.sh mysqld   Up (healthy)   3306/tcp
 ```
-
+Verify MySQL database:
 ```
 mysql> USE grafana;SHOW tables;
 Database changed
