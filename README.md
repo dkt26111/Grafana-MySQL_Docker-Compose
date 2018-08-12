@@ -6,7 +6,7 @@ Docker's dependencies can be determined by the following elements without specif
 * *volumes_from*
 * *network_mode: "service:<service_name>"*
 
-For a simple scenario it will suffice, how about when the dependent container is ready but the dependent service or process is not? Particularly, like database, or 3rd party remote API.
+For a simple scenario it will suffice, how about when the dependent container is ready but the dependent service or process is not? Particularly, database, or any other services need prolonged startup time.
 
 ### Solutions
 
