@@ -15,3 +15,6 @@ grafana    | t=2018-08-12T11:58:40+0000 lvl=info msg="Starting Grafana" logger=s
 ...
 grafana    | t=2018-08-12T11:58:44+0000 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
 ```
+
+### docker-compose up
+Grafana container starts only after the MySQL container becomes Ready, and Heathy. At the end Grafana is ready at [http://localhost:3000](http://localhost:3000)
