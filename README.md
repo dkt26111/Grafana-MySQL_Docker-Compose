@@ -11,7 +11,7 @@ For a simple scenario it will suffice, how about when the dependent container is
 ### Solutions
 
 You can:
-1. use [wait-for-it](https://github.com/vishnubob/wait-for-it), or [dockerzie](https://github.com/jwilder/dockerize), etc. Grafana container uses *ENTRYPOINT* of *[run.sh](https://github.com/grafana/grafana-docker/blob/master/run.sh)*, then it's not easy to **append** *./wait-for-it.sh*. There are other ways to solve it , such as using customized Grafana container image or using *docker-compose run*.
+1. use [wait-for-it](https://github.com/vishnubob/wait-for-it), or [dockerzie](https://github.com/jwilder/dockerize), etc. Since Grafana container uses *ENTRYPOINT* of *[run.sh](https://github.com/grafana/grafana-docker/blob/master/run.sh)* it's not easy to **append** *./wait-for-it.sh*. There are other ways to solve it , such as using customized Grafana container image or using *docker-compose run*.
 1. use *depends_on* from Docker, **simple and sweet!**
 
 ```
