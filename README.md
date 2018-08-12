@@ -39,6 +39,47 @@ docker-compose ps
 grafana                             /run.sh                       Up (healthy)   0.0.0.0:3000->3000/tcp
 grafana-mysql_docker-compose_db_1   docker-entrypoint.sh mysqld   Up (healthy)   3306/tcp
 ```
+
+```
+mysql> USE grafana;SHOW tables;
+Database changed
++------------------------+
+| Tables_in_grafana      |
++------------------------+
+| alert                  |
+| alert_notification     |
+| annotation             |
+| annotation_tag         |
+| api_key                |
+| dashboard              |
+| dashboard_acl          |
+| dashboard_provisioning |
+| dashboard_snapshot     |
+| dashboard_tag          |
+| dashboard_version      |
+| data_source            |
+| login_attempt          |
+| migration_log          |
+| org                    |
+| org_user               |
+| playlist               |
+| playlist_item          |
+| plugin_setting         |
+| preferences            |
+| quota                  |
+| session                |
+| star                   |
+| tag                    |
+| team                   |
+| team_member            |
+| temp_user              |
+| test_data              |
+| user                   |
+| user_auth              |
++------------------------+
+30 rows in set (0.00 sec)
+```
+
 If MySQL turns out to be _unhealthy_ Grafana container will not start.
 
 Grafana container starts only after the MySQL container becomes Ready, and Healthy. Now, Grafana is ready at [http://localhost:3000](http://localhost:3000) :+1:
