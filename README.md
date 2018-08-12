@@ -10,6 +10,10 @@ Creating grafana             ... done
 Attaching to grafana-ha_db_1, grafanadb_1       | Initializing database
 
 ...
+db_1       | 2018-08-12 11:58:38 1 [Note] mysqld: ready for connections.
+db_1       | Version: '5.6.41'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)
+
+...
 grafana    | t=2018-08-12T11:58:40+0000 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T11:17:28+0000
 
 ...
