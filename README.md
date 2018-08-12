@@ -17,11 +17,11 @@ You can:
 ```
 docker-compose up
 
-Creating network "grafana-ha_metrics_net" with the default driver
-Creating volume "grafana-ha_db_data" with default driver
-Creating grafana-ha_db_1 ... done
-Creating grafana             ... done
-Attaching to grafana-ha_db_1, grafanadb_1       | Initializing database
+Creating network "grafana-mysql_docker-compose_metrics_net" with the default driver
+Creating volume "grafana-mysql_docker-compose_db_data" with default driver
+Creating grafana-mysql_docker-compose_db_1 ... done
+Creating grafana                           ... done
+Attaching to grafana-mysql_docker-compose_db_1, grafana
 
 ...
 db_1       | 2018-08-12 11:58:38 1 [Note] mysqld: ready for connections.
@@ -34,10 +34,10 @@ grafana    | t=2018-08-12T11:58:44+0000 lvl=info msg="HTTP Server Listen" logger
 ### Result
 ```
 docker-compose ps
-       Name                     Command                State               Ports         
------------------------------------------------------------------------------------------
-grafana               /run.sh                       Up             0.0.0.0:3000->3000/tcp
-grafana-hacopy_db_1   docker-entrypoint.sh mysqld   Up (healthy)   3306/tcp
+              Name                            Command                State               Ports         
+-------------------------------------------------------------------------------------------------------
+grafana                             /run.sh                       Up             0.0.0.0:3000->3000/tcp
+grafana-mysql_docker-compose_db_1   docker-entrypoint.sh mysqld   Up (healthy)   3306/tcp
 ```
 If MySQL turns out to be _unhealthy_ Grafana container will not start.
 
