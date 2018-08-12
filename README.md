@@ -39,5 +39,6 @@ docker-compose ps
 grafana               /run.sh                       Up             0.0.0.0:3000->3000/tcp
 grafana-hacopy_db_1   docker-entrypoint.sh mysqld   Up (healthy)   3306/tcp
 ```
+If MySQL turns out to be _unhealthy_ Grafana container will not start.
 
 Grafana container starts only after the MySQL container becomes Ready, and Healthy. Now, Grafana is ready at [http://localhost:3000](http://localhost:3000) :+1:
