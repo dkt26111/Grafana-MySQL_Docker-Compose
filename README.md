@@ -80,6 +80,4 @@ Database changed
 30 rows in set (0.00 sec)
 ```
 
-If MySQL turns out to be _unhealthy_ Grafana container will not start.
-
-Grafana container starts only after the MySQL container becomes Ready, and Healthy. Now, Grafana is ready at [http://localhost:3000](http://localhost:3000) :+1:
+Grafana container only starts after the MySQL container becomes Ready, and Healthy. Now, Grafana is available at [http://localhost:3000](http://localhost:3000) :+1:
